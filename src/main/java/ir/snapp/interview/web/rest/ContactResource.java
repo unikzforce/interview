@@ -14,7 +14,7 @@ public class ContactResource {
 	private final ContactService contactService;
 	
 	public ContactResource(ContactService contactService) {
-		this.contactService = contactService
+		this.contactService = contactService;
 	}
 	
 	public ResponseEntity<ContactDTO> yes() {
