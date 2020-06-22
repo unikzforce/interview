@@ -1,6 +1,8 @@
 package ir.snapp.interview.web.rest;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +19,8 @@ public class ContactResource {
 		this.contactService = contactService;
 	}
 	
-	public ResponseEntity<ContactDTO> yes() {
+	@PostMapping()
+	public ResponseEntity<ContactDTO> yes(@RequestBody ContactDTO newContactDTO) {
 		
 		return null;
 	}
