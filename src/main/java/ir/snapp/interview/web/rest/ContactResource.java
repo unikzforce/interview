@@ -20,9 +20,10 @@ public class ContactResource {
 	}
 	
 	@PostMapping()
-	public ResponseEntity<ContactDTO> yes(@RequestBody ContactDTO newContactDTO) {
+	public ResponseEntity<ContactDTO> createContact(@RequestBody ContactDTO newContactDTO) {
+		ContactDTO savedContact = contactService.createContact(newContactDTO);
 		
-		return null;
+		return ResponseEntity.ok(savedContact);
 	}
 
 }
