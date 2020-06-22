@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class InterviewProject1Application {
 	
 	public static void main(String[] args) {
-		
 		SpringApplication.run(InterviewProject1Application.class, args);
 	}
 
