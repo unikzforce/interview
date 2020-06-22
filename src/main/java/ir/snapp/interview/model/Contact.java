@@ -1,8 +1,12 @@
 package ir.snapp.interview.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Contact {
@@ -20,6 +24,10 @@ public class Contact {
 	private String organization;
 	
 	private String github;
+	
+	@OneToMany
+	private List<GithubRepository> githubRepositories = new ArrayList<>();
+	
 
 	public long getId() {
 		return id;
@@ -69,6 +77,13 @@ public class Contact {
 		this.github = github;
 	}
 	
-	
+	public List<GithubRepository> getGithubRepositories() {
+		return githubRepositories;
+	}
+
+	public void setGithubRepositories(List<GithubRepository> githubRepositories) {
+		this.githubRepositories = githubRepositories;
+	}
+
 
 }
