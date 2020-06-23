@@ -44,7 +44,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DATABASE=test_db
+      - POSTGRES_DATABASE=qwerty
 
   pgadmin:
     image: dpage/pgadmin4
