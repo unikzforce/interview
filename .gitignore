@@ -119,3 +119,8 @@ Desktop.ini
 # ESLint
 ######################
 .eslintcache
+
+######################
+# Personal Environment Variables
+######################
+.env
