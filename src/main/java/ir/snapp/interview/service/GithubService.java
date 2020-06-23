@@ -17,7 +17,7 @@ public class GithubService {
 		this.githubClient = githubClient;
 	}
 	
-	public List<GHRepository> getRepositioryUrlsByUsername(String githubUsername) throws IOException {
+	public List<GHRepository> getGHRepositoriesByUsername(String githubUsername) throws IOException {
 		return this.githubClient.getUser(githubUsername).listRepositories().toList();
 	}
 
