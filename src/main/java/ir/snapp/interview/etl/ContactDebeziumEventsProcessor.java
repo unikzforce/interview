@@ -1,5 +1,7 @@
 package ir.snapp.interview.etl;
 
+import java.io.IOException;
+
 import org.apache.kafka.streams.kstream.KStream;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.Input;
@@ -49,6 +51,10 @@ public class ContactDebeziumEventsProcessor {
 						contactService.enrichContactWithGitReposIdempotently(after);
 						
 					} catch (JsonProcessingException e) {
+						e.printStackTrace();
+						return;
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
 						e.printStackTrace();
 						return;
 					}

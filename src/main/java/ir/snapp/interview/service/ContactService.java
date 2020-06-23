@@ -1,5 +1,6 @@
 package ir.snapp.interview.service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -48,7 +49,7 @@ public class ContactService {
 	}
 	
 	@Transactional
-	public void enrichContactWithGitReposIdempotently(Contact contact) {
+	public void enrichContactWithGitReposIdempotently(Contact contact) throws IOException {
 		// This Action must be Idempotent
 		// So First we delete all exisiting GitRepos
 		// And then add again add GitRepos
