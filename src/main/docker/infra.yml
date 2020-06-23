@@ -1,0 +1,81 @@
+version: '3.8'
+services:
+
+  zookeeper:
+    image: debezium/zookeeper
+    ports:
+    - 2181:2181
+    - 2888:2888
+    - 3888:3888
+    networks:
+      - dbz_net
+
+  kafka:
+    image: debezium/kafka
+    ports:
+    - 9092:9092
+    links:
+    - zookeeper
+    environment:
+    - ZOOKEEPER_CONNECT=zookeeper:2181
+    networks:
+      - dbz_net
+
+  akhq:
+    image: tchiotludo/akhq
+    environment:
+      AKHQ_CONFIGURATION: |
+        akhq:
+          connections:
+            docker-kafka-server:
+              properties:
+                bootstrap.servers: "kafka:9092"
+              connect:
+                url: "http://connect-debezium-postgresql:8083"
+    ports:
+      - 8080:8080
+    networks:
+      - dbz_net
+
+  postgres:
+    image: debezium/postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DATABASE=test_db
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@admin.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+    ports:
+      - 5050:5050
+
+  connect-debezium-postgresql:
+    image: debezium/connect
+    restart: always
+    ports:
+      - 8083:8083
+      - 5005:5005
+    links:
+      - kafka
+      - elasticsearch
+    environment:
+      - BOOTSTRAP_SERVERS=kafka:9092
+      - GROUP_ID=1
+      - CONFIG_STORAGE_TOPIC=my_connect_configs
+      - OFFSET_STORAGE_TOPIC=my_connect_offsets
+      - STATUS_STORAGE_TOPIC=my_source_connect_statuses
+    networks:
+      - dbz_net
+
+
+networks:
+  dbz_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.170.52.0/24
