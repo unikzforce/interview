@@ -33,7 +33,7 @@ services:
               connect:
                 url: "http://connect-debezium-postgresql:8083"
     ports:
-      - 8080:8081
+      - 8888:8080
 #    networks:
 #      - debezium_network
 
