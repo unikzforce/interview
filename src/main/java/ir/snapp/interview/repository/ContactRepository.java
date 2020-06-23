@@ -9,5 +9,5 @@ import ir.snapp.interview.repository.impl.ContactRepositoryCustom;
 
 @Repository
 public interface ContactRepository extends JpaRepository<Contact, Long>, ContactRepositoryCustom, QuerydslPredicateExecutor<Contact> {
-
+	
 }
