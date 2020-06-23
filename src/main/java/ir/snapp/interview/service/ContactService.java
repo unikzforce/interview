@@ -95,7 +95,7 @@ public class ContactService {
 		
 		return foundContacts
 				.stream()
-				.map(contact -> contactMapper.convertToDTO(contact))
+				.map( foundContact -> contactMapper.convertToDTO(foundContact))
 				.collect(Collectors.toList());
 	}
 
