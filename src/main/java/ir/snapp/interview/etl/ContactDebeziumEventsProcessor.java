@@ -14,13 +14,13 @@ import ir.snapp.interview.service.ContactService;
 import ir.snapp.interview.service.GithubService;
 
 @EnableBinding(ContactSink.class)
-public class ContactEventsProcessor {
+public class ContactDebeziumEventsProcessor {
 	
 	private final ObjectMapper objectMapper;
 	
 	private final ContactService contactService;
 	
-	public ContactEventsProcessor(
+	public ContactDebeziumEventsProcessor(
 			ObjectMapper objectMapper,
 			ContactService contactService
 			) {
