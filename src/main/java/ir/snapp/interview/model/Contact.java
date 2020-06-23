@@ -25,10 +25,6 @@ public class Contact {
 	
 	private String github;
 	
-	@OneToMany
-	private List<GithubRepository> githubRepositories = new ArrayList<>();
-	
-
 	public long getId() {
 		return id;
 	}
@@ -77,13 +73,4 @@ public class Contact {
 		this.github = github;
 	}
 	
-	public List<GithubRepository> getGithubRepositories() {
-		return githubRepositories;
-	}
-
-	public void setGithubRepositories(List<GithubRepository> githubRepositories) {
-		this.githubRepositories = githubRepositories;
-	}
-
-
 }
