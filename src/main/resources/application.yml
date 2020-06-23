@@ -7,11 +7,23 @@ spring:
 #    migrate-at-start: true
 #    baseline-on-migrate: true
 
+  cloud.stream:
+    bindings:
+      contactsBinding:
+        binder: kBind1
+        destination: finalAbstract
+    binders:
+      kBind1:
+        type: kstream
+        environment:
+          spring.cloud.stream.kafka.streams.binder:
+            brokers: localhost:9092
+
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: ${SPRING_DATASOURCE_URL:'jdbc:postgresql://localhost:5432/postgres'}
-    username: ${SPRING_DATASOURCE_USERNAME:postgres}
-    password: ${SPRING_DATASOURCE_PASSWORD:qwerty}
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: qwerty
     hikari:
       poolName: Hikari
       auto-commit: false

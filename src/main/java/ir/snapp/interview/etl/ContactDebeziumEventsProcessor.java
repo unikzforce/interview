@@ -13,7 +13,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ir.snapp.interview.model.Contact;
 import ir.snapp.interview.service.ContactService;
-import ir.snapp.interview.service.GithubService;
 
 @EnableBinding(ContactSink.class)
 public class ContactDebeziumEventsProcessor {
@@ -31,7 +30,7 @@ public class ContactDebeziumEventsProcessor {
 	}
 	
 	@StreamListener
-	public void processContactEvents(@Input(ContactSink.CONTACTS_TOPIC_NAME) final KStream<JsonNode, JsonNode> stream) {
+	public void processContactEvents(@Input(ContactSink.CONTACTS_BINDING) final KStream<JsonNode, JsonNode> stream) {
 		stream.foreach((key, value) -> {
       // Each delete events will be followed by a Tombstone message with null value, For the sake of kafka log compaction.
       // We need to ignore it, because we've done whatever that is needed on the arrival of delete message, right before

@@ -5,9 +5,9 @@ import org.springframework.cloud.stream.annotation.Input;
 
 public interface ContactSink {
 	
-  String CONTACTS_TOPIC_NAME = "contacts";
+  String CONTACTS_BINDING = "contactsBinding";
   
-  @Input(ContactSink.CONTACTS_TOPIC_NAME)
+  @Input(ContactSink.CONTACTS_BINDING)
   KStream<?, ?> contact();
 
 
