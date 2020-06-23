@@ -38,7 +38,7 @@ services:
       - dbz_net
 
   postgres:
-    image: debezium/postgres:latest
+    image: debezium/postgres
     ports:
       - 5432:5432
     environment:
