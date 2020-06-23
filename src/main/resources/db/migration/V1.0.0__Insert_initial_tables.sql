@@ -4,7 +4,7 @@ CREATE TABLE contact
 (
 	id BIGINT PRIMARY KEY,
 	name VARCHAR,
-	phoneNumber varchar,
+	phone_number varchar,
 	email VARCHAR,
 	organization VARCHAR,
 	github VARCHAR
@@ -14,6 +14,6 @@ CREATE TABLE gitrepo
 (
 	id BIGINT PRIMARY KEY,
 	url VARCHAR,
-	contactId BIGINT,
+	contact_id BIGINT,
 	FOREIGN KEY (contactId) REFERENCES contact (id)
 );

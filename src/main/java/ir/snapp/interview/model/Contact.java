@@ -3,6 +3,7 @@ package ir.snapp.interview.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,14 +16,19 @@ public class Contact {
 	@GeneratedValue
 	private long id;
 	
+	@Column(name="name")
 	private String name;
 	
+	@Column(name="phone_number")
 	private String phoneNumber;
 	
+	@Column(name="email")
 	private String email;
 	
+	@Column(name="organization")
 	private String organization;
 	
+	@Column(name="github")
 	private String github;
 	
 	public long getId() {
