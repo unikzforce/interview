@@ -10,6 +10,6 @@ public abstract class ContactMapper {
 	
 	public abstract ContactDTO convertToDTO(Contact contact);
 	
-	public abstract Contact covertToDomain(ContactDTO contactDTO);
+	public abstract Contact convertToDomain(ContactDTO contactDTO);
 
 }
