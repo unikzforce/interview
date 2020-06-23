@@ -73,6 +73,7 @@ public class ContactService {
 	}
 
 	
+	@Transactional(readOnly = true)
 	public List<ContactDTO> searchContacts(ContactDTO contactDTO) {
 		// TODO Auto-generated method stub
 		Example<Contact> contactExample = Example.of(contactMapper.convertToDomain(contactDTO));
