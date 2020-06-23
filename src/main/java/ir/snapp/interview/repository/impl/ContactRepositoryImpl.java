@@ -11,15 +11,17 @@ import com.querydsl.core.types.Predicate;
 import ir.snapp.interview.model.Contact;
 import ir.snapp.interview.model.QContact;
 import ir.snapp.interview.repository.ContactRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class ContactRepositoryImpl implements ContactRepositoryCustom {
-	
-	private final ContactRepository contactRepository;
+
+	@Autowired
+	private ContactRepository contactRepository;
 
 //	private final EntityManager entityManager;
 	
-	public ContactRepositoryImpl(ContactRepository contactRepository) {
-		this.contactRepository = contactRepository;
+	public ContactRepositoryImpl(/*ContactRepository contactRepository*/) {
+//		this.contactRepository = contactRepository;
 	}
 
 

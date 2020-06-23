@@ -15,5 +15,5 @@ CREATE TABLE gitrepo
 	id BIGINT PRIMARY KEY,
 	url VARCHAR,
 	contact_id BIGINT,
-	FOREIGN KEY (contactId) REFERENCES contact (id)
+	FOREIGN KEY (contact_id) REFERENCES contact (id)
 );
