@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import ir.snapp.interview.model.Contact;
 import ir.snapp.interview.repository.ContactRepository;
@@ -26,6 +27,7 @@ public class ContactService {
 		this.contactMapper = contactMapper;
 	}
 	
+	@Transactional
 	public ContactDTO createContact(ContactDTO newContactDTO) {
 		Contact savedContact = contactRepository.save( contactMapper.convertToDomain(newContactDTO));
 		
