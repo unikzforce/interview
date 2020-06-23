@@ -8,7 +8,7 @@ services:
     - 2888:2888
     - 3888:3888
     networks:
-      - dbz_net
+      - debezium_network
 
   kafka:
     image: debezium/kafka
@@ -19,7 +19,7 @@ services:
     environment:
     - ZOOKEEPER_CONNECT=zookeeper:2181
     networks:
-      - dbz_net
+      - debezium_network
 
   akhq:
     image: tchiotludo/akhq
@@ -33,9 +33,9 @@ services:
               connect:
                 url: "http://connect-debezium-postgresql:8083"
     ports:
-      - 8080:8080
+      - 8080:8081
     networks:
-      - dbz_net
+      - debezium_network
 
   postgres:
     image: debezium/postgres
@@ -62,7 +62,6 @@ services:
       - 5005:5005
     links:
       - kafka
-      - elasticsearch
     environment:
       - BOOTSTRAP_SERVERS=kafka:9092
       - GROUP_ID=1
@@ -70,12 +69,12 @@ services:
       - OFFSET_STORAGE_TOPIC=my_connect_offsets
       - STATUS_STORAGE_TOPIC=my_source_connect_statuses
     networks:
-      - dbz_net
+      - debezium_network
 
 
 networks:
-  dbz_net:
+  debezium_network:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.170.52.0/24
+        - subnet: 172.170.53.0/24
