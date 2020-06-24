@@ -7,7 +7,7 @@ to run the project, in folder of the project do:
 2. `curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @src/main/docker/postgresql-source.json`
 3. Set your `Github Personal Access Token` in the environment variable `GITHUB_PERSONAL_ACCESS_TOKEN`.
 4. then run the web application using `./gradlew bootRun`
-
+5. Then you can curl the server on `localhost:8080`. The create contact resource is accepting `POST` not `put`. 
 
 
 # Highlights
