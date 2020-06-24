@@ -14,7 +14,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ir.snapp.interview.model.Contact;
 import ir.snapp.interview.service.ContactService;
+import org.springframework.context.annotation.Profile;
 
+@Profile("!test")
 @EnableBinding(ContactSink.class)
 public class ContactDebeziumEventsProcessor {
 

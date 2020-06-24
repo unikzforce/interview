@@ -54,11 +54,12 @@ class InterviewProjectApplicationTests {
 	@Test
 	void testSave() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
-		final String contactsUrl = "http://localhost:8080/contacts";
+		final String contactsUrl = "http://localhost:"+ port +"/contacts/";
 		URI uri = new URI(contactsUrl);
 
 		ContactDTO contactDTO = new ContactDTO();
 		contactDTO.setName(CONTACT_1_NAME);
+		contactDTO.setPhoneNumber("+9893");
 		contactDTO.setGithub(CONTACT_1_GITHUB);
 
 		HttpHeaders headers = new HttpHeaders();
@@ -69,7 +70,7 @@ class InterviewProjectApplicationTests {
 		ResponseEntity<ContactDTO> response = restTemplate.postForEntity(uri, request, ContactDTO.class);
 
 		assertEquals(response.getBody().getName(), CONTACT_1_NAME);
-		assertEquals(response.getBody().getName(), CONTACT_1_GITHUB);
+		assertEquals(response.getBody().getGithub(), CONTACT_1_GITHUB);
 
 
 	}
