@@ -11,7 +11,7 @@ spring:
     bindings:
       contactsBinding:
         binder: kBind1
-        destination: contacts
+        destination: contact
     binders:
       kBind1:
         type: kstream

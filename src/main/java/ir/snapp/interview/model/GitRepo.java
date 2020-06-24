@@ -28,11 +28,11 @@ public class GitRepo {
     @JoinColumn(name = "contact_id")
     private Contact contact;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
