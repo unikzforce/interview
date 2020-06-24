@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.kohsuke.github.GHRepository;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,6 +28,8 @@ public class ContactService {
 	private final ContactMapper contactMapper;
 	
 	private final GithubService githubService;
+
+	private final ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreNullValues();
 	
 	public ContactService(
 			ContactRepository contactRepository,

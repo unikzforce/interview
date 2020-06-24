@@ -9,76 +9,76 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="contact")
+@Table(name = "contact")
 public class Contact {
-	
-	@Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
-  @SequenceGenerator(name = "sequence_generator")
-	@Column(name="id")
-	private long id;
-	
-	@Column(name="name")
-	private String name;
-	
-	@Column(name="phone_number")
-	private String phoneNumber;
-	
-	@Column(name="email")
-	private String email;
-	
-	@Column(name="organization")
-	private String organization;
-	
-	@Column(name="github")
-	private String github;
-	
-	public long getId() {
-		return id;
-	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
+    @SequenceGenerator(name = "sequence_generator")
+    @Column(name = "id")
+    private Long id;
 
-	public String getName() {
-		return name;
-	}
+    @Column(name = "name")
+    private String name;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
+    @Column(name = "email")
+    private String email;
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
+    @Column(name = "organization")
+    private String organization;
 
-	public String getEmail() {
-		return email;
-	}
+    @Column(name = "github", unique=true)
+    private String github;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getOrganization() {
-		return organization;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setOrganization(String organization) {
-		this.organization = organization;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getGithub() {
-		return github;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setGithub(String github) {
-		this.github = github;
-	}
-	
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(String organization) {
+        this.organization = organization;
+    }
+
+    public String getGithub() {
+        return github;
+    }
+
+    public void setGithub(String github) {
+        this.github = github;
+    }
+
 }

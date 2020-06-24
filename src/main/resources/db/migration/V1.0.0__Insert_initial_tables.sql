@@ -4,10 +4,10 @@ CREATE TABLE contact
 (
 	id BIGINT PRIMARY KEY,
 	name VARCHAR,
-	phone_number varchar,
+	phone_number VARCHAR UNIQUE NOT NULL,
 	email VARCHAR,
 	organization VARCHAR,
-	github VARCHAR
+	github VARCHAR UNIQUE NOT NULL
 );
 
 CREATE TABLE gitrepo

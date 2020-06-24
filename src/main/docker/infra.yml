@@ -59,7 +59,7 @@ services:
     restart: always
     ports:
       - 8083:8083
-      - 5005:5005
+#      - 5005:5005
     links:
       - kafka
     environment:

@@ -12,44 +12,44 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="gitrepo")
+@Table(name = "gitrepo")
 public class GitRepo {
-	
-	@Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
-  @SequenceGenerator(name = "sequence_generator")
-	@Column(name="id")
-	private long id;
-	
-	@Column(name="url")
-	private String url;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="contact_id")
-	private Contact contact;
 
-	public long getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
+    @SequenceGenerator(name = "sequence_generator")
+    @Column(name = "id")
+    private Long id;
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    @Column(name = "url")
+    private String url;
 
-	public String getUrl() {
-		return url;
-	}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "contact_id")
+    private Contact contact;
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public Contact getContact() {
-		return contact;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public void setContact(Contact contact) {
-		this.contact = contact;
-	}
-	
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
+
 }
