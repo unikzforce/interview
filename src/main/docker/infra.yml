@@ -68,6 +68,24 @@ services:
       - CONFIG_STORAGE_TOPIC=my_connect_configs
       - OFFSET_STORAGE_TOPIC=my_connect_offsets
       - STATUS_STORAGE_TOPIC=my_source_connect_statuses
+      - CONNECTOR_CLASS='io.debezium.connector.postgresql.PostgresConnector'
+      - TASKS_MAX=1
+      - DATABASE_HOSTNAME=postgres
+      - DATABASE_PORT=5432
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=qwerty
+      - DATABASE_DBNAME=postgres
+      - DATABASE_SERVER_NAME=postgres1
+      - DATABASE_WHITELIST=postgres
+      - TABLE_WHITELIST=public.contact
+      - DATABASE_HISTORY_KAFKA_BOOTSTRA_SERVERS=kafka:9092
+      - DATABASE_HISTORY_KAFKA_TOPIC=schema-changes.test_db
+      - TRANSFORMS=route
+      - TRANSFORMS_ROUTE_TYPE=org.apache.kafka.connect.transforms.RegexRouter
+      - TRANSFORMS_ROUTE_REGEX=([^.]+)\\.([^.]+)\\.([^.]+)
+      - TRANSFORMS_ROUTE_REPLACEMENT=$$3
+
+
 #    networks:
 #      - debezium_network
 
